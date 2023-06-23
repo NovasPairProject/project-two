@@ -65,9 +65,31 @@
         </section>
         <section class="sale" id="sale">
                 <h2>Featured sale</h2>
-                <button>Bestsellers</button>
-                <button>category</button>
-                    <ul>
+                <div class="filterContainer">
+                    <!-- <button id = "filter">Bestseller</button> -->
+                    <form action="">
+                        <label for="materialFilter"></label>
+                        <select class="materialFilter" name="material" id="materialFilter">
+                            <option value="" selected disabled>Material</option>
+                            <option value="wood">Wood</option>
+                            <option value="porcelain">Porcelain</option>
+                            <option value="cotton">Cotton</option>
+                            <option value="wax">Wax</option>
+                            <option value="glass">Glass</option>
+                        </select>
+                    </form>
+                    <form action="">
+                        <label for="colourFilter"></label>
+                        <select class="colourFilter" name="colour" id="colourFilter">
+                            <option value="" selected disabled>Colour</option>
+                            <option value="grey">Gray</option>
+                            <option value="green">Green</option>
+                            <option value="pink">Pink</option>
+                            <option value="white">White</option>
+                        </select>
+                    </form>
+                </div >
+                    <ul id="itemContainer">
                     <div class="saleItem">
                         <li>
                         <p>sale</p>
@@ -241,6 +263,9 @@
             </div>
         </div>
     </footer>
+
+    <script type="module" src="app.js"></script>
+   
 </body>
 
 </html>
