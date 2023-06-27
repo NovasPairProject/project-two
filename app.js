@@ -1,56 +1,78 @@
 
-// Filtering Function: 
-//create necessary HTML elements ✅
-//update/add classes to HTML container holding the furniture images✅
-//add CSS styling to the filter buttons✅
-// use query select to gather relevant HTML elements such as filter button and furniture images - save in variable✅
+  //firebase configuration 
+  import { app } from './firebase.js'
+  import { 
+    getDatabase, 
+    ref, 
+    onValue, 
+   } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 
-//add an event listener to the container of filters to listen for when a button is pressed {
-    //ensure event listener target is a button using event.target === button{
-        //target furniture's various filters and save them in a variable (ex. material, price, product category)
+    const database = getDatabase(app);
+    const dbRef = ref(database, 'items');
 
+// Append to Page Function 
+//selects the furniture items container and resets inner HTML
+const appendToPage = (furnitureItems) => {
+  const furnitureDisplayContainer = document.querySelector('.productContainer');
+  furnitureDisplayContainer.innerHTML = '';
 
-// use onValue function to listen to changes in database {
-    // use forEach method to create a function { 
-        //retrieve data from database and store in array
-        //filter array based on filter criteria
-        //display filter data to the page
+  //for each furniture item it saves each items attribute in a variable 
+  furnitureItems.forEach((item) => {
+    const itemName = item.name;
+    const itemPrice = item.price;
+    const itemImage = item.img;
 
-        //resetting array to go back to original when clear button 
+    //create HTML elements for data to append to
+    const itemHTML = `
+      <div class = "itemContainer">
+        <img class ="itemImage" src="${itemImage}">
+        <h3 class ="itemName">${itemName}</h3>
+        <h2 class ="itemPrice">${itemPrice}</h2>
+        <button class="button">Add To Cart</button>
+      </div>
+    `;
 
-import { app } from './firebase.js'
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+    furnitureDisplayContainer.innerHTML += itemHTML;
+  });
+};
 
-const database = getDatabase(app);
-const dbRef = ref(database);
+// Fetch all items 
+onValue(dbRef, (data) => {
+  const allItems = [];
+  //Clear Filter button to append all items when clicked
+  const clearFilterButton = document.querySelector("#clearFilterButton");
+  clearFilterButton.addEventListener('click', () => { 
+    appendToPage(allItems);
+  })
 
-const materialFilter = document.getElementById('materialFilter');
-const colourFilter = document.getElementById('colourFilter');
-const itemContainer = document.getElementById('itemContainer');
-
-materialFilter.addEventListener('change', handleFilterSelection);
-colourFilter.addEventListener('change', handleFilterSelection);
-
-function handleFilterSelection() {
-    const materialValue = materialFilter.value;
-    const colourValue = colourFilter.value;
-    
-    filterItems(materialValue, colourValue);
+  //checks if data exists in child item
+  if (data.exists()) {
+    data.forEach((childSnapshot) => {
+      const item = childSnapshot.val();
+      allItems.push(item);
+    });
   }
-  
-  function filterItems(material, colour) {
-    onValue(dbRef, (data) => {
-      const allItems = [];
-      if (data.exists()) {
-        const items = data.items();
-        for (let itemKey in items) {
-          const item = items[itemKey];
-      }
-    }
-    
-    })
-}
-  
 
+  // console.log(allItems);
+  
+  // Call appendToPage to display all items on the page before filtering
+  appendToPage(allItems);
+
+  //targets filter selection and listens for change and gathers selected value
+  const filterSelection = document.querySelector("#filter");
+  filterSelection.addEventListener("change", () => {
+    const selectedValue = filterSelection.value;
+    console.log(selectedValue);
+
+    //if selected value is found in array, append those items to the page
+    if (selectedValue === "") {
+      console.log("No data found");
+    } else {
+      const filteredItems = allItems.filter((item) => item.material === selectedValue);
+      // console.log(filteredItems);
+      appendToPage(filteredItems);
+    }
+  });
+});
 
 
