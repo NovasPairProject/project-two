@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;500;700&display=swap"
         rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fa802dd620.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/style.css">
 
 </head>
@@ -32,7 +33,10 @@
                     </li>
                 </ul>
             </nav>
+            <div class="cart">
             <img src="./assets/icons/shopping-cart-black-icon.png">
+            <div class="cartAmount" id="cartAmount">0</div>
+            </div>
         </div>
     </header>
     <main>
@@ -65,6 +69,7 @@
         </section>
         <section class="sale" id="sale">
                 <h2>Featured sale</h2>
+
                 <div class="filterContainer">
                     <!-- <button id = "filter">Bestseller</button> -->
                     <form action="">
@@ -92,95 +97,151 @@
                     <ul id="itemContainer">
                     <div class="saleItem">
                         <li>
+
+                          <!-- <ul> -->
+                    <div class="saleItem" id="saleItem">
+                    <div class="item" id="item">
+                        <!-- <li> -->
                         <p>sale</p>
                         <img src="./assets/prod-1.jpg" alt="An olive green comfortable chair">
                         <div class="itemPrice">
-                        <span>Malm chair<br><del>$35</del> $22</span>
-                        <button href="#AddingtoShoppingCart"></button>
-                        </li>
+                        <h3>Malm chair</h3>
+                        <h3><del>$35</del>$22</h3>
                         </div>
+                        <div class="counters">
+                            <i class="fa-solid fa-minus"></i>
+                            <div class="quantity">0</div>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <!-- </li> -->
                     </div>
-                    <div class="saleItem">
+                    </div>
+                    <div class="saleItem" id="saleItem">
                         <li>
                         <img src="./assets/prod-2.jpg" alt="A green pendant chair">
                         <div class="itemPrice">
-                        <span>Pendant lamp<br>$45</span>
-                        <button href="#AddingtoShoppingCart"></button>
-                        </li>
+                        <h3>Pendant table</h3>
+                        <h3>$45</h3>
                         </div>
+                        <div class="counters">
+                            <i class="fa-solid fa-minus"></i>
+                            <div class="quantity">0</div>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        </li>
                     </div>
-                    <div class="saleItem">
+                    <div class="saleItem" id="saleItem">
                         <li>
                         <p id="new">new</p>
                         <img src="./assets/prod-3.jpg" alt="Rounded pink salmon coffe table">
                         <div class="itemPrice">
-                        <span>Magnolia dream<br>$18</span>
-                        <button href="#AddingtoShoppingCart"></button>                    
-                        </li>
+                        <h3>Magnolia dream</h3>
+                        <h3>$18</h3>
                         </div>
+                        <div class="counters">
+                            <i class="fa-solid fa-minus"></i>
+                            <div class="quantity">0</div>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        </li>
                     </div>
-                    <div class="saleItem">
+                    <div class="saleItem" id="saleItem">
                         <li>
                         <img src="./assets/prod-4.jpg" alt="A grey comfortable chair">
                         <div class="itemPrice">
-                        <span>Maln chair<br>$45</span>
-                        <button href="#AddingtoShoppingCart"></button>                    
-                        </li>
+                        <h3>Maln chair</h3>
+                        <h3>$45</h3>
                         </div>
+                        <div class="counters">
+                            <i class="fa-solid fa-minus"></i>
+                            <div class="quantity">0</div>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        </li>
                     </div>    
-                    <div class="saleItem">
+                    <div class="saleItem" id="saleItem">
                         <li>
                         <img src="./assets/prod-5.jpg" alt="A pendant lamp">
                         <div class="itemPrice">
-                        <span>Pendant lamp<br>$45</span>
-                        <button href="#AddingtoShoppingCart"></button>                    
-                        </li>
+                        <h3>Pendant lamp</h3>
+                        <h3>$45</h3>
                         </div>
+                        <div class="counters">
+                            <i class="fa-solid fa-minus"></i>
+                            <div class="quantity">0</div>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        </li>
                     </div>    
-                    <div class="saleItem">
+                    <div class="saleItem" id="saleItem">
                         <li>
                         <img src="./assets/prod-6.jpg" alt="Solf and comfy pillow with line pattern">
                         <div class="itemPrice">
-                        <span>Candle<br>$45</span>
-                        <button href="#AddingtoShoppingCart"></button>                    
-                        </li>
+                        <h3>Pure pillow</h3>
+                        <h3>$45</h3>
                         </div>
+                        <div class="counters">
+                            <i class="fa-solid fa-minus"></i>
+                            <div class="quantity">0</div>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        </li>
                     </div>    
-                    <div class="saleItem">                        
+                    <div class="saleItem" id="saleItem">                        
                         <li>
                         <img src="./assets/prod-7.jpg" alt="Colorful mat with geometrical pattern">
                         <div class="itemPrice">
-                        <span>Lorem ipsum<br>$45</span>
-                        <button href="#AddingtoShoppingCart"></button>                    
-                        </li>
+                        <h3>Lorem carpet</h3>
+                        <h3>$45</h3>
                         </div>
+                        <div class="counters">
+                            <i class="fa-solid fa-minus"></i>
+                            <div class="quantity">0</div>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        </li>
                     </div>    
-                    <div class="saleItem"> 
+                    <div class="saleItem" id="saleItem"> 
                         <li>
                         <img src="./assets/prod-8.jpg" alt="A elephant shape decoration">
                         <div class="itemPrice">
-                        <span>Pendant lamp<br>$45</span>
-                        <button href="#AddingtoShoppingCart"></button>                    
-                        </li>
+                        <h3>Elephant head</h3>
+                        <h3>$45</h3>
                         </div>
+                        <div class="counters">
+                            <i class="fa-solid fa-minus"></i>
+                            <div class="quantity">0</div>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        </li>
                     </div>    
-                    <div class="saleItem">
+                    <div class="saleItem" id="saleItem">
                         <li>
                         <img src="./assets/prod-9.jpg" alt="Pink candle with a croos cover">
                         <div class="itemPrice">
-                        <span>Pendadnt lamp<br>$45</span>
-                        <button href="#AddingtoShoppingCart"></button>                    
-                        </li>
+                        <h3>Ipsum candle</h3>
+                        <h3>$45</h3>
                         </div>
+                        <div class="counters">
+                            <i class="fa-solid fa-minus"></i>
+                            <div class="quantity">0</div>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        </li>
                     </div> 
-                    <div class="saleItem">
+                    <div class="saleItem" id="saleItem">
                         <li>
                         <img src="./assets/prod-10.jpg" alt="Decorative lamp with a plant inside">
                         <div class="itemPrice">
-                        <span>Pendant lamp<br>$45</span>
-                        <button href="#AddingtoShoppingCart"></button>                    
-                        </li>
+                        <h3>Nulla lamp</h3>
+                        <h3>$45</h3>
+                         </div>
+                         <div class="counters">
+                            <i class="fa-solid fa-minus"></i>
+                            <div class="quantity">0</div>
+                            <i class="fa-solid fa-plus"></i>
                         </div>
+                        </li>
                     </div>
                     </ul>
                 <a href="#viewall" id="viewall">View all</a>
@@ -267,5 +328,5 @@
     <script type="module" src="app.js"></script>
    
 </body>
-
+<script src="shopping.js"></script>
 </html>
